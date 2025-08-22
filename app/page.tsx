@@ -50,7 +50,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <iframe src="https://dune.com/embeds/5451779/8894034"/>
+        <iframe src="https://dune.com/embeds/4891077/8099346"/>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
