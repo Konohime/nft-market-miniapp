@@ -2,6 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
+        <div>
+        <iframe class="configIframe" src="https://dune.com/embeds/4891077/8099346"/>
+        </div>
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
@@ -50,9 +53,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <div>
-        <iframe class="configIframe" src="https://dune.com/embeds/4891077/8099346"/>
-        </div>
+
         
         
       </main>
