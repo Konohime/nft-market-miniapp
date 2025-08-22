@@ -6,7 +6,7 @@ export default function Home() {
     <div className="font-sans items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <div>
-        <iframe class="configIframe" src="https://dune.com/embeds/4891077/8099346"/>
+        <iframe className="configIframe" src="https://dune.com/embeds/4891077/8099346"/>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
