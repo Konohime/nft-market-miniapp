@@ -46,7 +46,7 @@ export async function GET() {
     }),
     baseBuilder: {
       allowedAddresses:
-          ["0x609331f72cB1B0Cc5Ed89D2232Ca87b09413053a","0xaEDe77a59c4f721B1C24799a6c3fe6553898b743"], 
+          ["0xaEDe77a59c4f721B1C24799a6c3fe6553898b743"], 
     },
   });
 }
