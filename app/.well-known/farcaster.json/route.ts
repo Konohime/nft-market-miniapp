@@ -42,7 +42,8 @@ export async function GET() {
       tagline: process.env.NEXT_PUBLIC_APP_TAGLINE,
       ogTitle: process.env.NEXT_PUBLIC_APP_OG_TITLE,
       ogDescription: process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION,
-      ogImageUrl: process.env.NEXT_PUBLIC_APP_OG_IMAGE
+      ogImageUrl: process.env.NEXT_PUBLIC_APP_OG_IMAGE,
+      noindex: false
     }),
     baseBuilder: {
       allowedAddresses:
