@@ -1,18 +1,23 @@
+export const dynamic = "force-dynamic"; 
+
 function withValidProperties(
-  properties: Record<string, undefined | string | string[]>,
+  properties: Record<string, undefined | string | string[]>
 ) {
   return Object.fromEntries(
-    Object.entries(properties).filter(([key, value]) => {
-      if (Array.isArray(value)) {
-        return value.length > 0;
-      }
-      return !!value;
-    }),
+    Object.entries(properties).filter(([, value]) =>
+      Array.isArray(value) ? value.length > 0 : !!value
+    )
   );
 }
 
 export async function GET() {
-  const URL = process.env.NEXT_PUBLIC_URL;
+  const URL = process.env.NEXT_PUBLIC_URL as string;
+
+  const allowedAddresses =
+    (process.env.BASE_BUILDER_ALLOWED_ADDRESSES ?? "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
 
   return Response.json({
     accountAssociation: {
@@ -25,24 +30,26 @@ export async function GET() {
       name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME,
       subtitle: process.env.NEXT_PUBLIC_APP_SUBTITLE,
       description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
-      screenshotUrls: [],
+      screenshotUrls: [], 
       iconUrl: process.env.NEXT_PUBLIC_APP_ICON,
       splashImageUrl: process.env.NEXT_PUBLIC_APP_SPLASH_IMAGE,
       splashBackgroundColor: process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR,
       homeUrl: URL,
-      webhookUrl: `${URL}/api/webhook`,
-      noindex: true,
+      webhookUrl: URL ? `${URL}/api/webhook` : undefined,
       primaryCategory: process.env.NEXT_PUBLIC_APP_PRIMARY_CATEGORY,
-      tags: [],
+      tags: ["nft","analytics"], 
       heroImageUrl: process.env.NEXT_PUBLIC_APP_HERO_IMAGE,
       tagline: process.env.NEXT_PUBLIC_APP_TAGLINE,
       ogTitle: process.env.NEXT_PUBLIC_APP_OG_TITLE,
       ogDescription: process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION,
       ogImageUrl: process.env.NEXT_PUBLIC_APP_OG_IMAGE,
+      noindex: true,
+    }),
+    baseBuilder: {
+      allowedAddresses:
+        allowedAddresses.length > 0
+          ? allowedAddresses
+          : ["0x609331f72cB1B0Cc5Ed89D2232Ca87b09413053a"], 
     },
-     baseBuilder: {
-      // ⚠️ mets ici l’adresse liée à ton compte base.dev
-      allowedAddresses: ["0x609331f72cB1B0Cc5Ed89D2232Ca87b09413053a"],
-    },  
   });
 }
