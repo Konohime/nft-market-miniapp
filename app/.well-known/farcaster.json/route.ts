@@ -43,6 +43,6 @@ export async function GET() {
      baseBuilder: {
       // ⚠️ mets ici l’adresse liée à ton compte base.dev
       allowedAddresses: ["0x609331f72cB1B0Cc5Ed89D2232Ca87b09413053a"],
-    },                          ),
+    },  
   });
 }
