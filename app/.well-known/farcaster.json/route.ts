@@ -31,6 +31,7 @@ export async function GET() {
       splashBackgroundColor: process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR,
       homeUrl: URL,
       webhookUrl: `${URL}/api/webhook`,
+      noindex: true,
       primaryCategory: process.env.NEXT_PUBLIC_APP_PRIMARY_CATEGORY,
       tags: [],
       heroImageUrl: process.env.NEXT_PUBLIC_APP_HERO_IMAGE,
@@ -38,6 +39,10 @@ export async function GET() {
       ogTitle: process.env.NEXT_PUBLIC_APP_OG_TITLE,
       ogDescription: process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION,
       ogImageUrl: process.env.NEXT_PUBLIC_APP_OG_IMAGE,
-    }),
+    },
+     baseBuilder: {
+      // ⚠️ mets ici l’adresse liée à ton compte base.dev
+      allowedAddresses: ["0x609331f72cB1B0Cc5Ed89D2232Ca87b09413053a"],
+    },                          ),
   });
 }
